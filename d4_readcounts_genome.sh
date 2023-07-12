@@ -114,7 +114,7 @@ trap cleanup EXIT
 
 # Use GNU parallel to perform the operation on each chromosome
 echo "${chromosomes}" | \
-    parallel --no-notice "d4tools view -A ${D4_FILE} {} | \
+    parallel -j ${CPU} --no-notice "d4tools view -A ${D4_FILE} {} | \
     awk 'NF == 4' |\
     sort --parallel=${CPU} -k 1,1 -k2,2n -u -V | \
     bedtools map -a ${file1Mb} -b - -c 4 -o sum > \

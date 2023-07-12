@@ -84,7 +84,7 @@ check_file_exists "$GENOME"
 mkdir -p ${OUT_DIR}
 
 # Create required file if it doesn't exist
-file1Mb="${OUT_DIR}/hg38.1Mb.autosomes.bed"
+file1Mb="${OUT_DIR}/1Mb.autosomes.bed"
 if [ ! -f ${file1Mb} ]; then
     bedtools makewindows -g ${GENOME} -w 1000000 \
     | grep -w '^#\|chr[1-9]\|chr[1-2][0-9]' \

@@ -1,6 +1,6 @@
 # Read Counting alternative to readCounter
 
-It takes a D4 and genome files as input and computes read counts per 1Mb bin.
+It takes a [D4](https://github.com/38/d4-format) and genome files as input and computes read counts per 1Mb bin.
 
 ## Usage
 

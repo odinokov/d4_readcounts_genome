@@ -126,9 +126,11 @@ if [ -f ${outputFile} ]; then
 fi
 
 # Concatenate all tmp files into one in the same order as ${chromosomes}
+# and replace "." by "0"
 for chrom in ${chromosomes}
 do
-    cat "${tmp_dir}/_tmp.${filename}.1Mb.${chrom}.wig" >> ${outputFile}
+    cat "${tmp_dir}/_tmp.${filename}.1Mb.${chrom}.wig" |\
+    sed 's/\(\([^\t]*\t\)\{3\}\)[.]/\10/g' >> ${outputFile}
 done
 
 # Clean the temporary directory

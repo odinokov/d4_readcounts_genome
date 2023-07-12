@@ -8,7 +8,7 @@ CPU=4
 OUT_DIR=$(pwd)
 
 # Array of required executables
-required_executables=("d4tools" "bedtools")
+required_executables=("d4tools" "bedtools" "parallel")
 
 # Function to display usage
 usage() {

@@ -91,9 +91,8 @@ if [ ! -f ${file1Mb} ]; then
     | sort --parallel=${CPU} -k 1,1 -k2,2n -u -V  > ${file1Mb}
 fi
 
-# Extract the file name without extension
-filename=$(basename -- "${D4_FILE}")
-filename="${filename%.*}"
+# Extract the file name
+filename=$(basename -- "${D4_FILE}" .per-base.d4)
 
 # Create output file name
 outputFile="${OUT_DIR}/${filename}.1Mb.wig"

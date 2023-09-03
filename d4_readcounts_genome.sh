@@ -87,7 +87,7 @@ mkdir -p ${OUT_DIR}
 file1Mb="${OUT_DIR}/1Mb.autosomes.bed"
 if [ ! -f ${file1Mb} ]; then
     bedtools makewindows -g ${GENOME} -w 1000000 \
-    | grep -w '^#\|chr[1-9]\|chr[1-2][0-9]' \
+    | grep -w '^#\|chr[1-9]\|chr[1-2][0-9][X]' \
     | sort --parallel=${CPU} -k 1,1 -k2,2n -u -V  > ${file1Mb}
 fi
 

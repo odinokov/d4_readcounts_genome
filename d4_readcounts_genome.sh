@@ -115,7 +115,7 @@ trap cleanup EXIT
 echo "${chromosomes}" | \
     parallel -j ${CPU} --no-notice "d4tools view -A ${D4_FILE} {} | \
     awk 'NF == 4' |\
-    sort --parallel=${CPU} -k 1,1 -k2,2n -u -V | \
+    sort -k 1,1 -k2,2n -u -V | \
     bedtools map -a <(cat ${file1Mb} | grep -w {}) -b - -c 4 -o sum > \
     ${tmp_dir}/_tmp.${filename}.1Mb.{}.wig"
 
